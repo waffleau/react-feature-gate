@@ -10,11 +10,14 @@ export class FeatureGate extends React.Component {
     feature: React.PropTypes.string.isRequired
   }
 
+  getFeatures() {
+    return this.context.features || {}
+  }
+
   isActive() {
-    const {features} = this.context
     const {feature} = this.props
 
-    return !!features[feature]
+    return !!this.getFeatures()[feature]
   }
 
   render() {
