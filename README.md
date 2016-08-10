@@ -40,4 +40,4 @@ You can then control which features are availble using the `FeatureGate` compone
 
 ### Example
 
-An example webpage has been included with this project. If you clone the repo, run `npm start` and visit `http://localhost:8080/example` to view it.
+An example webpage has been included with this project. If you clone the repo, run `npm run example` and visit `http://localhost:8080/example` to view it.

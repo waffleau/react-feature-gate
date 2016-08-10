@@ -1,7 +1,2 @@
-import FeatureGate from './feature_gate'
-import FeatureProvider from './feature_provider'
-
-module.exports = {
-  FeatureGate,
-  FeatureProvider
-}
+export FeatureGate from './feature_gate'
+export FeatureProvider from './feature_provider'

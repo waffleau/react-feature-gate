@@ -1,29 +1,19 @@
 import React from 'react'
 
-export class FeatureGate extends React.Component {
-  static contextTypes = {
-    features: React.PropTypes.object.isRequired
-  }
+export function FeatureGate(props, context) {
+  const {children, feature} = props
+  const features = context.features || {}
 
-  static propTypes = {
-    children: React.PropTypes.any,
-    feature: React.PropTypes.string.isRequired
-  }
+  return features[feature] ? children : null
+}
 
-  getFeatures() {
-    return this.context.features || {}
-  }
+FeatureGate.contextTypes = {
+  features: React.PropTypes.object.isRequired
+}
 
-  isActive() {
-    const {feature} = this.props
-
-    return !!this.getFeatures()[feature]
-  }
-
-  render() {
-    const {children} = this.props
-    return this.isActive() ? children : null
-  }
+FeatureGate.propTypes = {
+  children: React.PropTypes.any,
+  feature: React.PropTypes.string.isRequired
 }
 
 export default FeatureGate

@@ -1,4 +1,4 @@
-const webpack = require('webpack')
+'use strict'
 
 module.exports = {
   entry: './example/index.js',

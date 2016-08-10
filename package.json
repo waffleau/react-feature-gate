@@ -1,22 +1,25 @@
 {
   "name": "react-feature-gate",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "React components to support feature gating",
-  "main": "src/index.js",
+  "main": "dist/react-feature-gate.js",
   "scripts": {
+    "build": "NODE_ENV=production webpack --config webpack.build.js",
+    "clean": "rimraf dist",
+    "example": "webpack-dev-server --config webpack.example.js --colors --hot --progress",
     "lint": "eslint src",
-    "start": "webpack-dev-server --colors --hot --progress",
-    "test": "karma start"
+    "prepublish": "npm run test && npm run clean && npm run build",
+    "test": "karma start --single-run"
   },
-  "files": [
-    "src"
-  ],
   "keywords": [
     "react",
     "feature gate",
     "feature toggle"
   ],
-  "repository": "https://github.com/waffleau/react-feature-gate.git",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/waffleau/react-feature-gate.git"
+  },
   "homepage": "https://github.com/waffleau/react-feature-gate",
   "bugs": "https://github.com/waffleau/react-feature-gate/issues",
   "author": "Matt Ellis",
