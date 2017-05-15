@@ -1,13 +1,13 @@
-import React from 'react'
+import React, { Component, PropTypes } from 'react'
 
-export class FeatureProvider extends React.Component {
+export class FeatureProvider extends Component {
   static childContextTypes = {
-    features: React.PropTypes.object.isRequired
+    features: PropTypes.object.isRequired
   }
 
   static propTypes = {
-    children: React.PropTypes.any,
-    features: React.PropTypes.object.isRequired
+    children: PropTypes.any,
+    features: PropTypes.object.isRequired
   }
 
   getChildContext() {

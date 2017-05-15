@@ -1,4 +1,4 @@
-import React from 'react'
+import { PropTypes } from 'react'
 
 export function FeatureGate(props, context) {
   const {children, feature} = props
@@ -8,12 +8,12 @@ export function FeatureGate(props, context) {
 }
 
 FeatureGate.contextTypes = {
-  features: React.PropTypes.object.isRequired
+  features: PropTypes.object.isRequired
 }
 
 FeatureGate.propTypes = {
-  children: React.PropTypes.any,
-  feature: React.PropTypes.string.isRequired
+  children: PropTypes.any,
+  feature: PropTypes.string.isRequired
 }
 
 export default FeatureGate
