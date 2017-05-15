@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 
 import {
@@ -19,7 +19,7 @@ const styles = {
   }
 }
 
-class Example extends React.Component {
+class Example extends Component {
   state = {
     feature1: true,
     feature2: false
