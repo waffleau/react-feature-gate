@@ -1,28 +1,32 @@
-'use strict'
+const webpack = require('webpack');
 
 module.exports = {
   entry: './example/index.js',
 
-  devtool: 'inline-source-map',
-
-  eslint: {
-    failOnWarning: false,
-    failOnError: false
-  },
+  devtool: 'source-map',
 
   output: {
-    path: './example',
+    path: '/example',
     publicPath: 'example',
-    filename: 'example.build.js'
+    filename: 'example.build.js',
   },
 
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
-        loaders: ['babel', 'eslint'],
-        exclude: /node_modules/
-      }
-    ]
-  }
-}
+        loaders: ['babel-loader', 'eslint-loader'],
+        exclude: /node_modules/,
+      },
+    ],
+  },
+
+  plugins: [
+    new webpack.LoaderOptionsPlugin({
+      eslint: {
+        failOnWarning: false,
+        failOnError: false,
+      },
+    }),
+  ],
+};

@@ -1,41 +1,39 @@
-'use strict'
-
-const webpack = require('webpack')
-const path = require('path')
+const webpack = require('webpack');
+const path = require('path');
 
 module.exports = {
   entry: path.resolve('src', 'index.js'),
 
   externals: {
-    'react': 'react'
+    react: 'react',
   },
 
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'react-feature-gate.js',
     library: 'ReactFeatureGate',
-    libraryTarget: 'umd'
-
+    libraryTarget: 'umd',
   },
 
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
-        loaders: ['babel', 'eslint'],
-        exclude: /node_modules/
-      }
-    ]
+        loaders: ['babel-loader', 'eslint-loader'],
+        exclude: /node_modules/,
+      },
+    ],
   },
 
   plugins: [
-    new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
-    })
+      'process.env': {
+        NODE_ENV: JSON.stringify('production'),
+      },
+    }),
   ],
 
   resolve: {
-    extensions: ['', '.js']
-  }
-}
+    extensions: ['.js'],
+  },
+};
